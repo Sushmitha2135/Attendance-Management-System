@@ -11,7 +11,7 @@ import time
 
 #####Window is our Main frame of system
 window = tk.Tk()
-window.title("FAMS-Face Recognition Based Attendance Management System")
+window.title("Hacktober Fest Automated Attendance Portal")
 
 window.geometry('1280x720')
 window.configure(background='snow')
@@ -59,7 +59,7 @@ def manually_fill():
         ###Connect to the database
         try:
             global cursor
-            connection = pymysql.connect(host='localhost', user='root', password='', db='manually_fill_attendance')
+            connection = pymysql.connect(host='localhost', user='root', password='Sush@123', db='manually_fill_attendance')
             cursor = connection.cursor()
         except Exception as e:
             print(e)
@@ -156,7 +156,7 @@ def manually_fill():
             def create_csv():
                 import csv
                 cursor.execute("select * from " + DB_table_name + ";")
-                csv_name='C:/Users/kusha/PycharmProjects/Attendace managemnt system/Attendance/Manually Attendance/'+DB_table_name+'.csv'
+                csv_name=r'C:\Users\saite\Hact214\Attendace_management_system\Attendance\Manually Attendance'+DB_table_name+'.csv'
                 with open(csv_name, "w") as csv_file:
                     csv_writer = csv.writer(csv_file)
                     csv_writer.writerow([i[0] for i in cursor.description])  # write headers
@@ -190,7 +190,7 @@ def manually_fill():
 
             c1ear_enroll = tk.Button(MFW, text="Clear", command=remove_enr, fg="black", bg="deep pink", width=10,
                                      height=1,
-                                     activebackground="Red", font=('times', 15, ' bold '))
+                                     activebackground="Silver", font=('times', 15, ' bold '))
             c1ear_enroll.place(x=690, y=100)
 
             c1ear_student = tk.Button(MFW, text="Clear", command=remove_student, fg="black", bg="deep pink", width=10,
@@ -210,7 +210,7 @@ def manually_fill():
 
             def attf():
                 import subprocess
-                subprocess.Popen(r'explorer /select,"C:\Users\kusha\PycharmProjects\Attendace managemnt system\Attendance\Manually Attendance\-------Check atttendance-------"')
+                subprocess.Popen(r'explorer /select,"C:\Users\saite\Hact214\Attendace_management_system\Attendance\Manually Attendance\-------Check atttendance-------"')
 
             attf = tk.Button(MFW,  text="Check Sheets",command=attf,fg="black"  ,bg="lawn green"  ,width=12  ,height=1 ,activebackground = "Red" ,font=('times', 14, ' bold '))
             attf.place(x=730, y=410)
@@ -396,7 +396,7 @@ def subjectchoose():
                 ###Connect to the database
                 try:
                     global cursor
-                    connection = pymysql.connect(host='localhost', user='root', password='', db='Face_reco_fill')
+                    connection = pymysql.connect(host='localhost', user='root', password='Sush@123', db='Face_reco_fill')
                     cursor = connection.cursor()
                 except Exception as e:
                     print(e)
@@ -431,7 +431,7 @@ def subjectchoose():
                 root = tkinter.Tk()
                 root.title("Attendance of " + Subject)
                 root.configure(background='snow')
-                cs = 'C:/Users/kusha/PycharmProjects/Attendace managemnt system/' + fileName
+                cs = r"C:\Users\saite\Hact214\Attendace_management_system\\" + fileName
                 with open(cs, newline="") as file:
                     reader = csv.reader(file)
                     r = 0
@@ -459,7 +459,7 @@ def subjectchoose():
 
     def Attf():
         import subprocess
-        subprocess.Popen(r'explorer /select,"C:\Users\kusha\PycharmProjects\Attendace managemnt system\Attendance\-------Check atttendance-------"')
+        subprocess.Popen(r'explorer /select,"C:\Users\saite\Hact214\Attendace_management_system\Attendance\-------Check atttendance-------"')
 
     attf = tk.Button(windo,  text="Check Sheets",command=Attf,fg="black"  ,bg="lawn green"  ,width=12  ,height=1 ,activebackground = "Red" ,font=('times', 14, ' bold '))
     attf.place(x=430, y=255)
@@ -486,8 +486,8 @@ def admin_panel():
         username = un_entr.get()
         password = pw_entr.get()
 
-        if username == 'kushal' :
-            if password == 'kushal14320':
+        if username == '124' :
+            if password == '124':
                 win.destroy()
                 import csv
                 import tkinter
@@ -495,7 +495,7 @@ def admin_panel():
                 root.title("Student Details")
                 root.configure(background='snow')
 
-                cs = 'C:/Users/kusha/PycharmProjects/Attendace managemnt system/StudentDetails/StudentDetails.csv'
+                cs = r'C:\Users\saite\Hact214\Attendace_management_system/StudentDetails/StudentDetails.csv'
                 with open(cs, newline="") as file:
                     reader = csv.reader(file)
                     r = 0
@@ -618,7 +618,7 @@ def on_closing():
         window.destroy()
 window.protocol("WM_DELETE_WINDOW", on_closing)
 
-message = tk.Label(window, text="Face-Recognition-Based-Attendance-Management-System", bg="cyan", fg="black", width=50,
+message = tk.Label(window, text="Hacktober Fest Automated Attendance Portal", bg="Teal", fg="black", width=50,
                    height=3, font=('times', 30, 'italic bold '))
 
 message.place(x=80, y=20)
@@ -626,7 +626,7 @@ message.place(x=80, y=20)
 Notification = tk.Label(window, text="All things good", bg="Green", fg="white", width=15,
                       height=3, font=('times', 17, 'bold'))
 
-lbl = tk.Label(window, text="Enter Enrollment", width=20, height=2, fg="black", bg="deep pink", font=('times', 15, ' bold '))
+lbl = tk.Label(window, text="Enter Roll No ", width=20, height=2, fg="black", bg="silver", font=('times', 15, ' bold '))
 lbl.place(x=200, y=200)
 
 def testVal(inStr,acttyp):
@@ -635,35 +635,35 @@ def testVal(inStr,acttyp):
             return False
     return True
 
-txt = tk.Entry(window, validate="key", width=20, bg="yellow", fg="red", font=('times', 25, ' bold '))
+txt = tk.Entry(window, validate="key", width=20, bg="light blue", fg="red", font=('times', 25, ' bold '))
 txt['validatecommand'] = (txt.register(testVal),'%P','%d')
 txt.place(x=550, y=210)
 
-lbl2 = tk.Label(window, text="Enter Name", width=20, fg="black", bg="deep pink", height=2, font=('times', 15, ' bold '))
+lbl2 = tk.Label(window, text="Enter Name ", width=20, fg="black", bg="Silver", height=2, font=('times', 15, ' bold '))
 lbl2.place(x=200, y=300)
 
-txt2 = tk.Entry(window, width=20, bg="yellow", fg="red", font=('times', 25, ' bold '))
+txt2 = tk.Entry(window, width=20, bg="light blue", fg="red", font=('times', 25, ' bold '))
 txt2.place(x=550, y=310)
 
-clearButton = tk.Button(window, text="Clear",command=clear,fg="black"  ,bg="deep pink"  ,width=10  ,height=1 ,activebackground = "Red" ,font=('times', 15, ' bold '))
+clearButton = tk.Button(window, text="Clear",command=clear,fg="black"  ,bg="silver"  ,width=10  ,height=1 ,activebackground = "Red" ,font=('times', 15, ' bold '))
 clearButton.place(x=950, y=210)
 
-clearButton1 = tk.Button(window, text="Clear",command=clear1,fg="black"  ,bg="deep pink"  ,width=10 ,height=1, activebackground = "Red" ,font=('times', 15, ' bold '))
+clearButton1 = tk.Button(window, text="Clear",command=clear1,fg="black"  ,bg="silver"  ,width=10 ,height=1, activebackground = "Red" ,font=('times', 15, ' bold '))
 clearButton1.place(x=950, y=310)
 
-AP = tk.Button(window, text="Check Register students",command=admin_panel,fg="black"  ,bg="cyan"  ,width=19 ,height=1, activebackground = "Red" ,font=('times', 15, ' bold '))
+AP = tk.Button(window, text="Check Register students",command=admin_panel,fg="black"  ,bg="teal"  ,width=19 ,height=1, activebackground = "Red" ,font=('times', 15, ' bold '))
 AP.place(x=990, y=410)
 
-takeImg = tk.Button(window, text="Take Images",command=take_img,fg="white"  ,bg="blue2"  ,width=20  ,height=3, activebackground = "Red" ,font=('times', 15, ' bold '))
+takeImg = tk.Button(window, text="Take Images",command=take_img,fg="black"  ,bg="light blue"  ,width=20  ,height=3, activebackground = "Red" ,font=('times', 15, ' bold '))
 takeImg.place(x=90, y=500)
 
-trainImg = tk.Button(window, text="Train Images",fg="black",command=trainimg ,bg="lawn green"  ,width=20  ,height=3, activebackground = "Red" ,font=('times', 15, ' bold '))
+trainImg = tk.Button(window, text="Train Images",fg="black",command=trainimg ,bg="light blue"  ,width=20  ,height=3, activebackground = "Red" ,font=('times', 15, ' bold '))
 trainImg.place(x=390, y=500)
 
-FA = tk.Button(window, text="Automatic Attendace",fg="white",command=subjectchoose  ,bg="blue2"  ,width=20  ,height=3, activebackground = "Red" ,font=('times', 15, ' bold '))
+FA = tk.Button(window, text="Automatic Attendace",fg="black",command=subjectchoose  ,bg="light blue"  ,width=20  ,height=3, activebackground = "Red" ,font=('times', 15, ' bold '))
 FA.place(x=690, y=500)
 
-quitWindow = tk.Button(window, text="Manually Fill Attendance", command=manually_fill  ,fg="black"  ,bg="lawn green"  ,width=20  ,height=3, activebackground = "Red" ,font=('times', 15, ' bold '))
+quitWindow = tk.Button(window, text="Manually Fill Attendance", command=manually_fill  ,fg="black"  ,bg="light blue"  ,width=20  ,height=3, activebackground = "Red" ,font=('times', 15, ' bold '))
 quitWindow.place(x=990, y=500)
 
 window.mainloop()
